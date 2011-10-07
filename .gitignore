@@ -1,0 +1,6 @@
+*~
+*.swp
+.vim/view/
+*.swo
+.vim/bundle/
+*/doc/tags
