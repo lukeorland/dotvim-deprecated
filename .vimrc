@@ -3,6 +3,7 @@
 "
 " This is the personal .vimrc file of Luke Orland
 " some influence from the .vimrc file from Steve Francia.
+" }
 
 " Environment {
 
@@ -188,7 +189,7 @@
 
     " Vundle - Other filetype-specific plugins {
 
-      "Bundle 'vim-pandoc/vim-pandoc'
+      Bundle 'vim-pandoc/vim-pandoc'
       "Bundle 'Arduino-syntax-file'
       "Bundle 'lukeorland/yaml-vim.git'
       "Bundle 'vim-ruby/vim-ruby.git'
@@ -346,41 +347,138 @@
   
 " }
 
-  " Key (re)mappings {
+" Vim UI - Tools: search, grep, completion {
 
-    " The key represented by <leader>
-    let mapleader = ","             " change the leader to be a comma vs slash
+  " Highlight searches, clear with spacebar
+  set hlsearch                " Highlight searches by default.
+  set highlight=l:Visual
+  nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+  set incsearch               " find as you type search
 
-    " Fast editing of the .vimrc
-    map <leader>rc :e! ~/.vimrc<CR>
+  set ignorecase              " Default to using case insensitive searches,
+  set smartcase               " unless uppercase letters are used in the regex.
 
-    " Reload vimrc
-    nmap <leader>s :source ~/.vimrc<CR>
+  " Autocompletion / OmniComplete - settings {
 
-    " Fix problem default mappings {
+    " Behaves like bash
+    set wildmenu
+    set wildmode=list:longest,full
+    " Ignore these files when completing
+    set wildignore+=*.o,*.obj,.git,*.pyc
 
-      " Yank from the cursor to the end of the line, to be consistent with C and D.
-      nnoremap Y y$
+    """ Insert completion
+    " don't select first item, follow typing in autocomplete
+    " Vim tip 1386 insert-mode auto-completion
+    "set completeopt=longest,menuone
+    set completeopt=menuone,longest,preview
+    set pumheight=6             " Keep a small completion window
 
-    " Window navigation with ctrl key {
+    " close preview window automatically when we move around
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-      inoremap <C-h> <esc><C-w><C-h>
-      inoremap <C-j> <esc><C-w><C-j>
-      inoremap <C-k> <esc><C-w><C-k>
-      inoremap <C-l> <esc><C-w><C-l>
-      noremap <C-h> <C-w><C-h>
-      noremap <C-j> <C-w><C-j>
-      noremap <C-k> <C-w><C-k>
-      noremap <C-l> <C-w><C-l>
-      " Make these all work in insert mode too ( <C-O> makes next cmd
-      "  happen as if in command mode )
-      imap <C-w> <C-o><C-w>
-    " }
+    set omnifunc=syntaxcomplete#Complete
 
-    " Toggle numbers
-    nmap <leader>n :set nonu!<CR>
+    "if has("autocmd") && exists("+omnifunc")
+    "  autocmd Filetype *
+    "    \if &omnifunc == "" |
+    "    \setlocal omnifunc=syntaxcomplete#Complete |
+    "    \endif
+    "endif
+
+    "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    "autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+    "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+    "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    "autocmd FileType c set omnifunc=ccomplete#Complete
+
+    " automatically open and close the popup menu / preview window
+    "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+    "set completeopt=menu,preview,longest
+
+    " Use tab to scroll through autocomplete menus
+    autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
+    autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
+  " }
+
+  " Autocompletion / OmniComplete - key mappings {
+
+"    inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+"    inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+"    inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"    inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+"    inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+    " the following interferes with my choice for pasting from the system
+    " clipboard in imode:
+"    inoremap <expr> <C-n>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
+    " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+    " Change the behavior of the <Enter> key when the popup menu is visible. In
+    " that case the Enter key will simply select the highlighted menu item,
+    " just as <C-Y> does.
+    "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " make <C-N> work the way it normally does; however, when the menu
+    " appears, the <Down> key will be simulated. What this accomplishes is it
+    " keeps a menu item always highlighted.
+    "inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+    "  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+    " simulates <C-X><C-O> to bring up the omni completion menu, then it
+    " simulates <C-N><C-P> to remove the longest common text, and finally it
+    " simulates <Down> again to keep a match highlighted.
+    "inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+    "  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+    " TODO: what is the following supposed to do?
+    "noremap <expr> <C-n> pumvisible() ? '<C-n>'  : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+  " }
+
+" }
+
+" Key (re)mappings {
+
+  " The key represented by <leader>
+  let mapleader = ","             " change the leader to be a comma vs slash
+
+  " Fast editing of the .vimrc
+  map <leader>rc :e! ~/.vimrc<CR>
+
+  " Reload vimrc
+  nmap <leader>s :source ~/.vimrc<CR>
+
+  " Fix problem default mappings {
+
+    " Yank from the cursor to the end of the line, to be consistent with C and D.
+    nnoremap Y y$
 
   " }
+
+  " Window navigation with ctrl key {
+
+    inoremap <C-h> <esc><C-w><C-h>
+    inoremap <C-j> <esc><C-w><C-j>
+    inoremap <C-k> <esc><C-w><C-k>
+    inoremap <C-l> <esc><C-w><C-l>
+    noremap <C-h> <C-w><C-h>
+    noremap <C-j> <C-w><C-j>
+    noremap <C-k> <C-w><C-k>
+    noremap <C-l> <C-w><C-l>
+    " Make these all work in insert mode too ( <C-O> makes next cmd
+    "  happen as if in command mode )
+    imap <C-w> <C-o><C-w>
+  " }
+
+  " Toggle numbers
+  nmap <leader>n :set nonu!<CR>
+
+  " Folding {
+
+    " Variable for ToggleFold()
+    au FileType * let b:folded = 1
+    map Z :call ToggleFold()<CR> 
+  " }
+
+" }
 
 " Plugin key-mappings {
 
@@ -403,5 +501,19 @@
     let NERDTreeShowHidden=0
     let NERDTreeKeepTreeInNewTab=1 " Undocumented setting.
   " }
+" }
+
+" Functions {
+
+" Copied from http://www.vim.org/scripts/script.php?script_id=1494
+function! ToggleFold() 
+    if( b:folded == 0 ) 
+        exec "normal! zM" 
+        let b:folded = 1 
+    else 
+        exec "normal! zR" 
+        let b:folded = 0 
+    endif 
+endfunction 
 
 " }
