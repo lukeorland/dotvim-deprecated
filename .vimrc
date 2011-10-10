@@ -105,7 +105,7 @@
     " Vundle - project, source code management {
 
       "Bundle 'taglist.vim'
-      "Bundle 'TaskList.vim'
+      Bundle 'TaskList.vim'
       "Bundle 'tpope/vim-fugitive'
       "Bundle 'tpope/vim-git'
 
