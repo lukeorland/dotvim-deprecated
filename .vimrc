@@ -106,7 +106,7 @@
 
       "Bundle 'taglist.vim'
       Bundle 'TaskList.vim'
-      "Bundle 'tpope/vim-fugitive'
+      Bundle 'tpope/vim-fugitive'
       "Bundle 'tpope/vim-git'
 
       " Generic test runner that works with nose
