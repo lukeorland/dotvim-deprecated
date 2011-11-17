@@ -517,3 +517,5 @@ function! ToggleFold()
 endfunction 
 
 " }
+
+au FileType crontab set nobackup nowritebackup
