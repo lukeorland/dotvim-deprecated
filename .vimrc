@@ -123,15 +123,14 @@
       "     git submodule update
       " to download the pyflakes python source.
         "Bundle 'kevinw/pyflakes-vim'
-        "Bundle 'mitechie/pyflakes-pathogen'
+        Bundle 'mitechie/pyflakes-pathogen'
 
       " The following is enhanced syntax highlighting for python. seems buggy
       " to me.
       " Install it, then checkout the python3 branch to get highlighting for 
       " python3.0
       "Bundle 'vim-scripts/python.vim--Vasiliev'
-
-      "Bundle 'vim-scripts/indentpython.vim'
+      Bundle 'indentpython.vim'
 
       " a python IDE completion helper.
       "Bundle 'orestis/pysmell.vim'
