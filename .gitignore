@@ -4,3 +4,4 @@
 *.swo
 .vim/bundle/
 */doc/tags
+.vim/temp
