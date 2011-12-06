@@ -100,6 +100,7 @@
       "Bundle 'rson/vim-conque'
       "Bundle 'EvalSelection.vim'
       "Bundle 'sjl/gundo.vim'
+      Bundle 'YankRing.vim'
     " }
 
     " Vundle - project, source code management {
@@ -188,6 +189,8 @@
 
     " Vundle - Other filetype-specific plugins {
 
+      Bundle 'tiddlywiki'
+      "Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
       Bundle 'vim-pandoc/vim-pandoc'
       "Bundle 'Arduino-syntax-file'
       "Bundle 'lukeorland/yaml-vim.git'
@@ -212,7 +215,7 @@
       "       :VO au 
       "       :VO let
       " 
-      "Bundle 'ViewOutput'
+      Bundle 'ViewOutput'
     " }
 
     " Vundle - TODO: check out these plugins some day. {
