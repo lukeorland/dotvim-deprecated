@@ -100,7 +100,6 @@
       "Bundle 'rson/vim-conque'
       "Bundle 'EvalSelection.vim'
       "Bundle 'sjl/gundo.vim'
-      Bundle 'YankRing.vim'
     " }
 
     " Vundle - project, source code management {
@@ -153,6 +152,7 @@
 
       " Pytest - Runs your Python tests in Vim.
       "Bundle 'alfredodeza/pytest.vim'
+      Bundle 'vim-scripts/pytest.vim'
  
       "Bundle 'run_python_tests'
       "Bundle 'olethanh/Vim-nosecompiler'
@@ -232,6 +232,8 @@
       "Bundle 'mattn/zencoding-vim.git'
       "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
       "Bundle 'mileszs/ack.vim'
+      "Bundle 'Syntastic'
+      "Bundle 'YankRing.vim'
     " }
 
     " Vundle brief help {
