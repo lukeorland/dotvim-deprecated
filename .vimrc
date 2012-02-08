@@ -85,7 +85,7 @@
       "Bundle 'Raimondi/delimitMate'
       "Bundle 'matchit.zip'
       "Bundle 'html_autoclosetag.vim'
-      "Bundle 'tpope/vim-surround'
+      Bundle 'tpope/vim-surround'
     " }
 
     " Vundle - Directory navigation, buffers, terminal, undo, tests {
