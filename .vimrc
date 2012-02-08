@@ -450,6 +450,9 @@
   " Reload vimrc
   nmap <leader>s :source ~/.vimrc<CR>
 
+  " When pressing <leader>cd switch to the directory of the open buffer
+  map <leader>cd :cd %:p:h<CR>
+
   " Fix problem default mappings {
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
