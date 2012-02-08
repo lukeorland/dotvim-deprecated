@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Dropbox/Luke/school/jhu-grad/courses/natural_language_processing-600.465/hw03/codes'
 let g:netrw_dirhist_2='/Dropbox/Luke/school/jhu-grad/courses/machine_learning-600.475/hw-codes/scripts'
 let g:netrw_dirhist_3='/Users/orluke/Library/Caches/TemporaryItems'
 let g:netrw_dirhist_4='/Users/orluke/src/newnew_dotvim/.vim'
+let g:netrw_dirhist_5='/Users/orluke/workspace/lukeorland.github.com/source/_posts'
+let g:netrw_dirhist_6='/Users/orluke/workspace/flyorlandic.com/source/_posts'
