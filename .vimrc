@@ -52,6 +52,10 @@
 
   " Vundle Support {
 
+    if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+      !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    endif
+
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
 
