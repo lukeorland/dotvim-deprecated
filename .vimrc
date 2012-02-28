@@ -273,6 +273,19 @@
 
 " Vim UI - Sound / Display / View / Visual aspects {
 
+  function! CurDir()
+    let curdir = substitute(getcwd(), '/home/orluke', "~", "g")
+    let curdir = substitute(curdir, '/Users/orluke', "~", "g")
+    let curdir = substitute(curdir, '/users/lorland1', "~", "g")
+    let curdir = substitute(curdir, '/home/lorland1', "~", "g")
+    return curdir
+  endfunction
+
+  " Always show status line
+  set laststatus=2
+  " Custom Status Line
+  set statusline=%t%m\ cwd:\ %{exists('g:loaded_rvm')?rvm#statusline():''}\ %r%{CurDir()}%h%=col:%3v\ line:%4l\ of\ %L\ %p%%
+
   " don't bell or blink
   set noerrorbells
   set visualbell t_vb=
