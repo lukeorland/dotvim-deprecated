@@ -81,6 +81,7 @@
     " Vundle - autocompletion {
 
       Bundle 'increment.vim--Natter'
+      Bundle 'Tabular'
       "Bundle 'closetag.vim'
       "Bundle 'ervandew/supertab'
       " SnipMate
