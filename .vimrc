@@ -52,7 +52,7 @@
 
   " Vundle Support {
 
-    if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+    if !isdirectory(expand("~/.vim/bundle/vundle"))
       !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
     endif
 
