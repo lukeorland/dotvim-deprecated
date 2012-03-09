@@ -196,14 +196,15 @@
 
       Bundle 'tiddlywiki'
       "Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-      Bundle 'vim-pandoc/vim-pandoc'
+      "Bundle 'vim-pandoc/vim-pandoc'
       "Bundle 'Arduino-syntax-file'
       "Bundle 'lukeorland/yaml-vim.git'
-      "Bundle 'vim-ruby/vim-ruby.git'
+      Bundle 'vim-ruby/vim-ruby.git'
+      Bundle 'tpope/vim-rails.git'
       "Bundle 'groovy.vim'
       "Bundle 'lukeorland/groovyindent.git'
       "Bundle 'matlab.vim'
-      "Bundle 'tpope/vim-markdown.git'
+      Bundle 'tpope/vim-markdown.git'
       "Bundle 'rails.vim'
     " }
 
@@ -344,8 +345,6 @@
       let g:tex_conceal= 'adgm'
       hi Conceal guibg=White guifg=DarkMagenta
       hi Conceal guifg=DarkMagenta
-      " TODO: get conceal to work for latex math statements in pandoc/markdown
-      " files.
 
     else    " In the terminal
       colorscheme desert
