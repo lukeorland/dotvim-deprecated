@@ -106,6 +106,7 @@
       "Bundle 'rson/vim-conque'
       "Bundle 'EvalSelection.vim'
       "Bundle 'sjl/gundo.vim'
+      Bundle 'VOom'
     " }
 
     " Vundle - project, source code management {
