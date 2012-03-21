@@ -85,9 +85,12 @@
       Bundle 'RST-Tables'
       "Bundle 'closetag.vim'
       "Bundle 'ervandew/supertab'
-      " SnipMate
-        "Bundle 'msanders/snipmate.vim'
-        "Bundle 'scrooloose/snipmate-snippets'
+      " SnipMate {
+      	Bundle "MarcWeber/vim-addon-mw-utils"
+	Bundle "tomtom/tlib_vim"
+	Bundle "honza/snipmate-snippets"
+	Bundle "garbas/vim-snipmate"
+      " }
       "Bundle 'Raimondi/delimitMate'
       "Bundle 'matchit.zip'
       "Bundle 'html_autoclosetag.vim'
