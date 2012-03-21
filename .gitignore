@@ -3,5 +3,3 @@
 .vim/view/
 *.swo
 .vim/bundle/
-*/doc/tags
-.vim/temp
