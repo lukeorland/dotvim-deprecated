@@ -82,6 +82,7 @@
 
       Bundle 'increment.vim--Natter'
       Bundle 'Tabular'
+      Bundle 'RST-Tables'
       "Bundle 'closetag.vim'
       "Bundle 'ervandew/supertab'
       " SnipMate
@@ -196,7 +197,7 @@
 
       Bundle 'tiddlywiki'
       "Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-      "Bundle 'vim-pandoc/vim-pandoc'
+      Bundle 'vim-pandoc/vim-pandoc'
       "Bundle 'Arduino-syntax-file'
       "Bundle 'lukeorland/yaml-vim.git'
       Bundle 'vim-ruby/vim-ruby.git'
@@ -271,6 +272,15 @@
                                "It is essential that the above lines are
                                "called before enabling filetype detection
   "cd ~
+
+  " Operation {
+    " These settings are supposed to speed things up:
+    " http://superuser.com/questions/302186/vim-scrolls-very-slow-when-a-line-is-to-long
+    set synmaxcol=128
+    set ttyfast " u got a fast terminal
+    set ttyscroll=3
+    set lazyredraw " to avoid scrolling problems
+    " }
 " }
 
 " Vim UI - Sound / Display / View / Visual aspects {
