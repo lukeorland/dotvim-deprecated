@@ -1,8 +1,13 @@
 " Modeline and Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker nospell:
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker nospell ts=2 sw=2 expandtab
 "
 " This is the personal .vimrc file of Luke Orland
 " some influence from the .vimrc file from Steve Francia.
+"
+" TODO: Switch from vundle to the automatic tool that loads everything at the
+" right time and allows per-filetype plugins loading.
+" BROKEN: indenting c code won't do 2 spaces
+"
 " }
 
 " Environment {
@@ -84,7 +89,7 @@
       Bundle 'Tabular'
       Bundle 'RST-Tables'
       "Bundle 'closetag.vim'
-      "Bundle 'ervandew/supertab'
+      Bundle 'SuperTab-continued.'
       " SnipMate {
       	Bundle "MarcWeber/vim-addon-mw-utils"
 	Bundle "tomtom/tlib_vim"
@@ -109,22 +114,24 @@
       "Bundle 'rson/vim-conque'
       "Bundle 'EvalSelection.vim'
       "Bundle 'sjl/gundo.vim'
-      Bundle 'VOom'
+      Bundle 'VOoM'
     " }
 
     " Vundle - project, source code management {
 
       "Bundle 'taglist.vim'
-      Bundle 'TaskList.vim'
+      "Bundle 'TaskList.vim'
       Bundle 'tpope/vim-fugitive'
       "Bundle 'tpope/vim-git'
 
       " Generic test runner that works with nose
       " FIXME: I can't get this to work with nose/python -m unittest
-      "Bundle 'reinh/vim-makegreen'
+      Bundle 'reinh/vim-makegreen'
     " }
 
     " Vundle - Python {
+
+      Bundle 'Python-mode-klen'
 
       " Underlines and displays errors with Python on-the-fly
       " For pyflakes, make sure to go into .vim/bundle/pyflakes-vim/
@@ -133,14 +140,14 @@
       "     git submodule update
       " to download the pyflakes python source.
         "Bundle 'kevinw/pyflakes-vim'
-        Bundle 'mitechie/pyflakes-pathogen'
+        "Bundle 'mitechie/pyflakes-pathogen'
 
       " The following is enhanced syntax highlighting for python. seems buggy
       " to me.
       " Install it, then checkout the python3 branch to get highlighting for 
       " python3.0
       "Bundle 'vim-scripts/python.vim--Vasiliev'
-      Bundle 'indentpython.vim'
+      "Bundle 'indentpython.vim'
 
       " a python IDE completion helper.
       "Bundle 'orestis/pysmell.vim'
@@ -170,6 +177,7 @@
       " because I was getting weird output from nosetests.
       " The former works better and simpler (in some ways)
       "Bundle 'lukeorland/Vim-nosecompiler'
+      Bundle 'lambdalisue/nose.vim'
 
       " I can't get pydiction to do what it says it does. Maybe the problem is
       " due to setting the wrong pydiction_location below (in Windows).
@@ -194,11 +202,12 @@
       " Actually, there isn't support for python 3, so nevermind.
       "Bundle 'gordyt/rope-vim'
 
-      "Bundle 'AutoComplPop'
+      Bundle 'AutoComplPop'
     " }
 
     " Vundle - Other filetype-specific plugins {
 
+      "Bundle 'c.vim'
       Bundle 'tiddlywiki'
       "Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
       Bundle 'vim-pandoc/vim-pandoc'
@@ -353,7 +362,7 @@
       set lines=999      " create windows with maximum height by default
 
       "set transparency=5          " Make the window slightly transparent
-      " Enable conceal (display math characters instead of tex math, except
+      " Enable conceal (display math characters instead of tex latex math, except
       " for the line being edited.
       set cole=2
       let g:tex_conceal= 'adgm'
@@ -412,7 +421,7 @@
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-    set omnifunc=syntaxcomplete#Complete
+    "set omnifunc=syntaxcomplete#Complete
 
     "if has("autocmd") && exists("+omnifunc")
     "  autocmd Filetype *
@@ -476,10 +485,10 @@
   let mapleader = ","             " change the leader to be a comma vs slash
 
   " Fast editing of the .vimrc
-  map <leader>rc :e! ~/.vimrc<CR>
+  map <leader>rc :e! ~/src/dotvim/.vimrc<CR>
 
   " Reload vimrc
-  nmap <leader>s :source ~/.vimrc<CR>
+  nmap <leader>s :source ~/src/dotvim/.vimrc<CR>
 
   " When pressing <leader>cd switch to the directory of the open buffer
   map <leader>cd :cd %:p:h<CR>
@@ -556,4 +565,13 @@ endfunction
 
 " }
 
-au FileType crontab set nobackup nowritebackup
+" Filetype-specific plugin settings {
+
+  " crontab
+  au FileType crontab set nobackup nowritebackup
+
+  " pandoc
+  let g:pandoc_use_hard_wraps = 1
+  let g:pandoc_auto_format = 1
+
+" }
