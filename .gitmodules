@@ -1,0 +1,3 @@
+[submodule "deps/vimified"]
+	path = deps/vimified
+	url = git@github.com:zaiste/vimified.git
