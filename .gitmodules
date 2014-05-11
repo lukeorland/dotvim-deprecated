@@ -1,3 +1,6 @@
 [submodule "deps/vimified"]
 	path = deps/vimified
 	url = git@github.com:zaiste/vimified.git
+[submodule "deps/yadr"]
+	path = deps/yadr
+	url = git@github.com:skwp/dotfiles.git
