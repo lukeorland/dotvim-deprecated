@@ -1,4 +1,5 @@
 " VUNDLE EXTRA PACKAGES {{{
-"Bundle 'editorconfig/editorconfig-vim'
+Bundle 'd11wtq/ctrlp_bdelete.vim'
+call ctrlp_bdelete#init()
 
 "}}}
