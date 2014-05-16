@@ -1,16 +1,31 @@
+"" Environment
+set shell=bash\ -i
+
+"" Search, tab completion
+set ignorecase  " Default to using case insensitive searches,
+set smartcase   " unless uppercase letters are used in the regex.
+
+"" Keyboard shortcuts
+" Remove trailing whitespace on <leader>S
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Spacebar unhighlights search results.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>"
+
 " Completion behaves like bash
 set wildmenu
 set wildmode=list:longest,full
 " Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc
-set wildignore+=eggs/**
-set wildignore+=*.egg-info/**
+set wildignore+=*.o,*.obj,.git
 
+"" Look & feel
 " Show current line number and relative numbers above and below.
 set number
 set relativenumber
+set colorcolumn=80
 
 " Whitespace highlighting
 set listchars=tab:↦\ ,trail:◦,precedes:˂,extends:˃
+highlight Comment cterm=italic
 
-set shell=bash\ -i
+autocmd FileType python source ~/.vim/python.vimrc
