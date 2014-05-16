@@ -12,3 +12,5 @@ set relativenumber
 
 " Whitespace highlighting
 set listchars=tab:↦\ ,trail:◦,precedes:˂,extends:˃
+
+set shell=bash\ -i
