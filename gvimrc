@@ -1,1 +1,1 @@
-set lsp=5
+set linespace=3
