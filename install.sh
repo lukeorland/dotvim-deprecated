@@ -35,5 +35,6 @@ popd
 ln -sfn $PWD/vimrc.before ~/.vim/before.vimrc
 ln -sfn $PWD/vimrc.extra ~/.vim/extra.vimrc
 ln -sfn $PWD/vimrc.after ~/.vim/after.vimrc
+ln -sfn $PWD/vimrc.python ~/.vim/python.vimrc
 
 ln -sfn $PWD/gvimrc ~/.gvimrc

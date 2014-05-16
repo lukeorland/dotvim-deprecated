@@ -4,4 +4,6 @@ call ctrlp_bdelete#init()
 
 Bundle 'Valloric/YouCompleteMe'
 
+let NERDTreeIgnore = ['\.pyc$']
+
 "}}}
