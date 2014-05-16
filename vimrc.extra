@@ -2,4 +2,6 @@
 Bundle 'd11wtq/ctrlp_bdelete.vim'
 call ctrlp_bdelete#init()
 
+Bundle 'Valloric/YouCompleteMe'
+
 "}}}
