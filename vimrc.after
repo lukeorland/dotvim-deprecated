@@ -28,5 +28,7 @@ set colorcolumn=80
 set listchars=tab:↦\ ,trail:◦,precedes:˂,extends:˃
 highlight Comment cterm=italic
 
+set endofline
+
 autocmd FileType python source ~/.vim/python.vimrc
 autocmd FileType markdown source ~/.vim/markdown.vimrc
