@@ -6,4 +6,5 @@ Bundle 'Valloric/YouCompleteMe'
 
 let NERDTreeIgnore = ['\.pyc$']
 
+Bundle "morhetz/gruvbox"
 "}}}
