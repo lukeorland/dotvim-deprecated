@@ -29,3 +29,4 @@ set listchars=tab:↦\ ,trail:◦,precedes:˂,extends:˃
 highlight Comment cterm=italic
 
 autocmd FileType python source ~/.vim/python.vimrc
+autocmd FileType markdown source ~/.vim/markdown.vimrc
